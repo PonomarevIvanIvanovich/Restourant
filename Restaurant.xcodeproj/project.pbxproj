@@ -11,6 +11,18 @@
 		E82C30CE29803C4F0067160B /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E82C30CD29803C4F0067160B /* SFProDisplay-Regular.ttf */; };
 		E86901DF298158580048B1EA /* PromoSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901DE298158580048B1EA /* PromoSectionCollectionView.swift */; };
 		E86901E1298159570048B1EA /* PromoSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901E0298159570048B1EA /* PromoSectionCell.swift */; };
+		E86901E729826C8C0048B1EA /* PromoSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901E629826C8C0048B1EA /* PromoSectionModel.swift */; };
+		E86901ED298273E90048B1EA /* PromoBannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901EC298273E90048B1EA /* PromoBannerCollectionView.swift */; };
+		E86901EF298274220048B1EA /* PromoBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901EE298274220048B1EA /* PromoBannerCell.swift */; };
+		E86901F1298274350048B1EA /* PromoBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901F0298274350048B1EA /* PromoBannerModel.swift */; };
+		E86901F429829DC90048B1EA /* DiscountProductCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901F329829DC90048B1EA /* DiscountProductCollectionView.swift */; };
+		E86901F629829DFF0048B1EA /* DiscountProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901F529829DFF0048B1EA /* DiscountProductCell.swift */; };
+		E86901F829829E110048B1EA /* DiscountProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901F729829E110048B1EA /* DiscountProductModel.swift */; };
+		E86901FA2982C7CA0048B1EA /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86901F92982C7CA0048B1EA /* ColorManager.swift */; };
+		E86901FC2982DB250048B1EA /* roboto-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E86901FB2982DB250048B1EA /* roboto-regular.ttf */; };
+		E86902002982DD960048B1EA /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E86901FF2982DD960048B1EA /* Roboto-Bold.ttf */; };
+		E86902022982DE900048B1EA /* SFProDisplay-Medium.OTF in Resources */ = {isa = PBXBuildFile; fileRef = E86902012982DE900048B1EA /* SFProDisplay-Medium.OTF */; };
+		E86902052982DF350048B1EA /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86902042982DF350048B1EA /* FontManager.swift */; };
 		E8A44F83297FD212004861FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A44F82297FD212004861FC /* AppDelegate.swift */; };
 		E8A44F85297FD212004861FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A44F84297FD212004861FC /* SceneDelegate.swift */; };
 		E8A44F87297FD212004861FC /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A44F86297FD212004861FC /* MainScreen.swift */; };
@@ -27,6 +39,18 @@
 		E82C30CD29803C4F0067160B /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		E86901DE298158580048B1EA /* PromoSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoSectionCollectionView.swift; sourceTree = "<group>"; };
 		E86901E0298159570048B1EA /* PromoSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoSectionCell.swift; sourceTree = "<group>"; };
+		E86901E629826C8C0048B1EA /* PromoSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoSectionModel.swift; sourceTree = "<group>"; };
+		E86901EC298273E90048B1EA /* PromoBannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoBannerCollectionView.swift; sourceTree = "<group>"; };
+		E86901EE298274220048B1EA /* PromoBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoBannerCell.swift; sourceTree = "<group>"; };
+		E86901F0298274350048B1EA /* PromoBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoBannerModel.swift; sourceTree = "<group>"; };
+		E86901F329829DC90048B1EA /* DiscountProductCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountProductCollectionView.swift; sourceTree = "<group>"; };
+		E86901F529829DFF0048B1EA /* DiscountProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountProductCell.swift; sourceTree = "<group>"; };
+		E86901F729829E110048B1EA /* DiscountProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountProductModel.swift; sourceTree = "<group>"; };
+		E86901F92982C7CA0048B1EA /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		E86901FB2982DB250048B1EA /* roboto-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "roboto-regular.ttf"; sourceTree = "<group>"; };
+		E86901FF2982DD960048B1EA /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		E86902012982DE900048B1EA /* SFProDisplay-Medium.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.OTF"; sourceTree = "<group>"; };
+		E86902042982DF350048B1EA /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		E8A44F7F297FD212004861FC /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A44F82297FD212004861FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A44F84297FD212004861FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,9 +95,9 @@
 		E86901E2298160420048B1EA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E8A44F86297FD212004861FC /* MainScreen.swift */,
 				E86901E4298160B80048B1EA /* SearchAdressBottomSheet */,
 				E86901E32981606C0048B1EA /* PromoScreen */,
-				E8A44F86297FD212004861FC /* MainScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -81,8 +105,9 @@
 		E86901E32981606C0048B1EA /* PromoScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E86901E0298159570048B1EA /* PromoSectionCell.swift */,
 				E86901DE298158580048B1EA /* PromoSectionCollectionView.swift */,
+				E86901E0298159570048B1EA /* PromoSectionCell.swift */,
+				E86901E629826C8C0048B1EA /* PromoSectionModel.swift */,
 			);
 			path = PromoScreen;
 			sourceTree = "<group>";
@@ -94,6 +119,37 @@
 				E8B62CC22981444E007602F9 /* SearchAdressCell.swift */,
 			);
 			path = SearchAdressBottomSheet;
+			sourceTree = "<group>";
+		};
+		E86901E5298175740048B1EA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E8A44F84297FD212004861FC /* SceneDelegate.swift */,
+				E8A44F82297FD212004861FC /* AppDelegate.swift */,
+				E86901F92982C7CA0048B1EA /* ColorManager.swift */,
+				E86902042982DF350048B1EA /* FontManager.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E86901EB298273A90048B1EA /* PromoBanner */ = {
+			isa = PBXGroup;
+			children = (
+				E86901EC298273E90048B1EA /* PromoBannerCollectionView.swift */,
+				E86901EE298274220048B1EA /* PromoBannerCell.swift */,
+				E86901F0298274350048B1EA /* PromoBannerModel.swift */,
+			);
+			path = PromoBanner;
+			sourceTree = "<group>";
+		};
+		E86901F229829D080048B1EA /* DiscountProduct */ = {
+			isa = PBXGroup;
+			children = (
+				E86901F329829DC90048B1EA /* DiscountProductCollectionView.swift */,
+				E86901F529829DFF0048B1EA /* DiscountProductCell.swift */,
+				E86901F729829E110048B1EA /* DiscountProductModel.swift */,
+			);
+			path = DiscountProduct;
 			sourceTree = "<group>";
 		};
 		E8A44F76297FD212004861FC = {
@@ -118,10 +174,11 @@
 		E8A44F81297FD212004861FC /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				E86901E5298175740048B1EA /* Application */,
 				E86901E2298160420048B1EA /* Screens */,
+				E86901EB298273A90048B1EA /* PromoBanner */,
+				E86901F229829D080048B1EA /* DiscountProduct */,
 				E8B62CC4298155FA007602F9 /* Fonts */,
-				E8A44F82297FD212004861FC /* AppDelegate.swift */,
-				E8A44F84297FD212004861FC /* SceneDelegate.swift */,
 				E8A44F8B297FD214004861FC /* Assets.xcassets */,
 				E8A44F8D297FD214004861FC /* LaunchScreen.storyboard */,
 				E8A44F90297FD214004861FC /* Info.plist */,
@@ -132,7 +189,10 @@
 		E8B62CC4298155FA007602F9 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E86902012982DE900048B1EA /* SFProDisplay-Medium.OTF */,
 				E82C30CD29803C4F0067160B /* SFProDisplay-Regular.ttf */,
+				E86901FF2982DD960048B1EA /* Roboto-Bold.ttf */,
+				E86901FB2982DB250048B1EA /* roboto-regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -197,9 +257,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86902022982DE900048B1EA /* SFProDisplay-Medium.OTF in Resources */,
 				E82C30CE29803C4F0067160B /* SFProDisplay-Regular.ttf in Resources */,
 				E8A44F8F297FD214004861FC /* LaunchScreen.storyboard in Resources */,
+				E86902002982DD960048B1EA /* Roboto-Bold.ttf in Resources */,
 				E8A44F8C297FD214004861FC /* Assets.xcassets in Resources */,
+				E86901FC2982DB250048B1EA /* roboto-regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,11 +316,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B62CC129813410007602F9 /* SearchAdressBottomSheet.swift in Sources */,
+				E86901ED298273E90048B1EA /* PromoBannerCollectionView.swift in Sources */,
+				E86901E729826C8C0048B1EA /* PromoSectionModel.swift in Sources */,
+				E86901F429829DC90048B1EA /* DiscountProductCollectionView.swift in Sources */,
+				E86901EF298274220048B1EA /* PromoBannerCell.swift in Sources */,
 				E86901DF298158580048B1EA /* PromoSectionCollectionView.swift in Sources */,
+				E86901FA2982C7CA0048B1EA /* ColorManager.swift in Sources */,
 				E8A44F87297FD212004861FC /* MainScreen.swift in Sources */,
 				E86901E1298159570048B1EA /* PromoSectionCell.swift in Sources */,
 				E8A44F83297FD212004861FC /* AppDelegate.swift in Sources */,
+				E86901F629829DFF0048B1EA /* DiscountProductCell.swift in Sources */,
+				E86901F1298274350048B1EA /* PromoBannerModel.swift in Sources */,
 				E8A44F85297FD212004861FC /* SceneDelegate.swift in Sources */,
+				E86901F829829E110048B1EA /* DiscountProductModel.swift in Sources */,
+				E86902052982DF350048B1EA /* FontManager.swift in Sources */,
 				E8B62CC32981444E007602F9 /* SearchAdressCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

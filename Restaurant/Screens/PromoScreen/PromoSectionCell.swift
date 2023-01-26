@@ -12,13 +12,15 @@ import SnapKit
 final class PromoSectionCell: UICollectionViewCell {
     static let identyfier = "PromoSectionCell"
 
-    private let sectionImage: UIImageView = {
+    let sectionImage: UIImageView = {
         let sectionImage = UIImageView()
         return sectionImage
     }()
 
-    private let sectionLabel: UILabel = {
+    let sectionLabel: UILabel = {
         let sectionLabel = UILabel()
+        sectionLabel.textAlignment = .center
+        sectionLabel.font = FontManager.sfRegular14
         return sectionLabel
     }()
 
@@ -32,14 +34,18 @@ final class PromoSectionCell: UICollectionViewCell {
     }
 
     private func setupUI() {
-        contentView.addSubview(sectionImage)
         contentView.addSubview(sectionLabel)
         sectionLabel.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(15)
         }
+
+        contentView.addSubview(sectionImage)
         sectionImage.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().inset(5)
+            make.right.equalToSuperview().inset(5)
+            make.height.equalTo(53)
         }
     }
 }

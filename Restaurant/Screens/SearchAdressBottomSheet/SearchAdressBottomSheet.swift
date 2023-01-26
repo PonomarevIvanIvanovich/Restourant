@@ -34,9 +34,12 @@ final class SearchAdressBottomSheet: UIViewController, UISearchBarDelegate {
     }
 
     private func setupSearchBar() {
-        searchBar.searchBarStyle = UISearchBar.Style.minimal
+        searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = "Введите адрес"
         searchBar.delegate = self
+        searchBar.isTranslucent = true
+        searchBar.barTintColor = .white
+        searchBar.tintColor = .white
     }
 
     private func setupUI() {

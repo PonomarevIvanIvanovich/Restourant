@@ -11,7 +11,7 @@ import SnapKit
 final class MainScreen: UIViewController, UISearchBarDelegate {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        scrollView.backgroundColor = ColorManager.accentColor
         scrollView.frame = view.bounds
         scrollView.contentSize = contentSize
         return scrollView
@@ -19,7 +19,7 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
 
     private lazy var contentView: UIView = {
         let contentView = UIView()
-        contentView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        contentView.backgroundColor = ColorManager.accentColor
         contentView.frame.size = contentSize
         return contentView
     }()
@@ -37,16 +37,16 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
 
     private let deliveryLabel: UILabel = {
         let deliveryLabel = UILabel()
-        deliveryLabel.textColor = UIColor(red: 0.443, green: 0.443, blue: 0.443, alpha: 1)
+        deliveryLabel.textColor = ColorManager.greyText
         deliveryLabel.text = "Доставка"
-        deliveryLabel.font = UIFont(name: "SFProDisplay-Regular", size: 12)
+        deliveryLabel.font = FontManager.sfRegular12
         return deliveryLabel
     }()
 
     private let adressLabel: UILabel = {
         let adressButton = UILabel()
         adressButton.text = "Пискунова,24"
-        adressButton.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        adressButton.font = FontManager.sfRegular16
         return adressButton
     }()
 
@@ -62,16 +62,39 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
     private let hearhButton: UIButton = {
         let hearhButton = UIButton()
         hearhButton.layer.cornerRadius = 15
-        hearhButton.backgroundColor = UIColor(red: 0.957, green: 0.957, blue: 0.957, alpha: 1)
-        hearhButton.setImage(UIImage(named: "imageHeartBlack"), for: .normal)
+        hearhButton.backgroundColor = ColorManager.accentBackground
+        hearhButton.setImage(UIImage(named: "love"), for: .normal)
         return hearhButton
     }()
+
+    private let promoSectionCollectionView = PromoSectionCollectionView()
+    private let promoBannerCollection = PromoBannerCollection()
+
+    private let discountLabel: UILabel = {
+        let discountLabel = UILabel()
+        discountLabel.text = "Акции"
+        discountLabel.font = FontManager.sfRegular20
+        return discountLabel
+    }()
+
+    private let lookButton: UIButton = {
+        let lookButton = UIButton()
+        lookButton.titleLabel?.font =  FontManager.sfRegular12
+        lookButton.setTitle("Смотреть все >", for: .normal)
+        lookButton.setTitleColor(.black, for: .normal)
+        lookButton.layer.cornerRadius = 15
+        lookButton.backgroundColor = ColorManager.accentBackground
+        return lookButton
+    }()
+
+    private let discountProductCollectionView = DiscountProductCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupSearchBar()
         setupTargetButton()
+        appendPromoSection()
     }
 
 // MARK: - Setup action
@@ -101,7 +124,7 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.showsScopeBar = true
-        searchBar.barTintColor = UIColor(red: 0.957, green: 0.957, blue: 0.957, alpha: 1)
+        searchBar.barTintColor = ColorManager.accentBackground
         searchBar.delegate = self
     }
 
@@ -109,10 +132,16 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
 
     }
 
+    private func appendPromoSection() {
+        promoSectionCollectionView.set(cell: PromoSectionModel.fatchPromo())
+        promoBannerCollection.set(cell: PromoBannerModel.fatchPromo())
+        discountProductCollectionView.set(cell: DiscountProductModel.fatchPromo())
+    }
+
 // MARK: - Setup constraints
 
     private func setupUI() {
-        view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        view.backgroundColor = ColorManager.accentColor
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(leftMenuButton)
@@ -159,6 +188,48 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
             make.centerY.equalTo(searchBar.snp.centerY)
             make.height.width.equalTo(30)
             make.left.equalTo(searchBar.snp.right)
+        }
+
+        contentView.addSubview(promoSectionCollectionView)
+        promoSectionCollectionView.backgroundColor = ColorManager.accentColor
+        promoSectionCollectionView.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.right.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).inset(-20)
+            make.height.equalTo(80)
+        }
+        contentView.addSubview(promoBannerCollection)
+        promoBannerCollection.backgroundColor = ColorManager.accentColor
+        promoBannerCollection.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.right.equalToSuperview()
+            make.top.equalTo(promoSectionCollectionView.snp.bottom).inset(-20)
+            make.height.equalTo(110)
+        }
+
+        contentView.addSubview(discountLabel)
+        discountLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.top.equalTo(promoBannerCollection.snp.bottom).inset(-20)
+            make.height.equalTo(20)
+            make.width.equalTo(70)
+        }
+
+        contentView.addSubview(lookButton)
+        lookButton.snp.makeConstraints { make in
+            make.centerY.equalTo(discountLabel.snp.centerY)
+            make.right.equalToSuperview().inset(15)
+            make.height.equalTo(25)
+            make.width.equalTo(103)
+        }
+
+        contentView.addSubview(discountProductCollectionView)
+        discountProductCollectionView.backgroundColor = ColorManager.accentColor
+        discountProductCollectionView.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.right.equalToSuperview()
+            make.top.equalTo(discountLabel.snp.bottom).inset(-20)
+            make.height.equalTo(208)
         }
     }
 }

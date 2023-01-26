@@ -20,7 +20,7 @@ final class SearchArdessCell: UITableViewCell {
 
     private let streetlabel: UILabel = {
         let streetlabel = UILabel()
-        streetlabel.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        streetlabel.font = FontManager.sfRegular16
         streetlabel.text = "Ленина ул.,113"
         return streetlabel
     }()
@@ -28,7 +28,7 @@ final class SearchArdessCell: UITableViewCell {
     private let citylabel: UILabel = {
         let citylabel = UILabel()
         citylabel.textColor = .lightGray
-        citylabel.font = UIFont(name: "SFProDisplay-Regular", size: 14)
+        citylabel.font = FontManager.sfRegular14
         citylabel.text = "Ижевск,Республика Удмуртия,Россия"
         return citylabel
     }()

@@ -1,72 +1,73 @@
 //
-//  PromoSectionCollectionView.swift
+//  PromoBannerCollection.swift
 //  Restaurant
 //
-//  Created by Иван Пономарев on 25.01.2023.
+//  Created by Иван Пономарев on 26.01.2023.
 //
-
 import Foundation
 import UIKit
 import SnapKit
 
-final class PromoSectionCollectionView: UICollectionView {
-    var cell = [PromoSectionModel]()
-    
+final class PromoBannerCollection: UICollectionView {
+    var cellArray = [PromoBannerModel]()
+
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
-        setupPromoCollectionView()
+        setupPromoBannerCollectionView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupPromoCollectionView() {
-        backgroundColor = #colorLiteral(red: 0.9589126706, green: 0.9690223336, blue: 0.9815708995, alpha: 1)
-        register(PromoSectionCell.self, forCellWithReuseIdentifier: PromoSectionCell.identyfier)
+    private func setupPromoBannerCollectionView() {
+        register(PromoBannerCell.self, forCellWithReuseIdentifier: PromoBannerCell.identyfier)
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
         delegate = self
         dataSource = self
     }
 
-    func set(cell: [PromoSectionModel]) {
-        self.cell = cell
+    func set(cell: [PromoBannerModel]) {
+        self.cellArray = cell
     }
 }
 //MARK: - UICollectionViewDelegate
 
-extension PromoSectionCollectionView: UICollectionViewDelegate {
+extension PromoBannerCollection: UICollectionViewDelegate {
 
 }
 
 //MARK: - UICollectionViewDataSource
 
-extension PromoSectionCollectionView: UICollectionViewDataSource {
+extension PromoBannerCollection: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cell.count
+        cellArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PromoSectionCell.identyfier,
+            withReuseIdentifier: PromoBannerCell.identyfier,
             for: indexPath
-        ) as? PromoSectionCell else {
+        ) as? PromoBannerCell else {
             return UICollectionViewCell()
         }
-        cell.sectionLabel.text = self.cell[indexPath.row].name
-        cell.sectionImage.image = self.cell[indexPath.row].mainImage
+        cell.promoImage.image = cellArray[indexPath.row].mainImage
+        cell.promoLabel.text = cellArray[indexPath.row].promoLabel
+        cell.titleLabel.text = cellArray[indexPath.row].titleLabel
         return cell
     }
 }
 
 //MARK: - UICollectionViewDataSource
 
-extension PromoSectionCollectionView: UICollectionViewDelegateFlowLayout {
+extension PromoBannerCollection: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: collectionView.frame.height)
+        return CGSize(width: 280, height: collectionView.frame.height)
     }
 }
+
+
