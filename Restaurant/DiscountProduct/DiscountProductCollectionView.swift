@@ -35,11 +35,6 @@ final class DiscountProductCollectionView: UICollectionView {
         self.cellArray = cell
     }
 }
-//MARK: - UICollectionViewDelegate
-
-extension DiscountProductCollectionView: UICollectionViewDelegate {
-
-}
 
 //MARK: - UICollectionViewDataSource
 

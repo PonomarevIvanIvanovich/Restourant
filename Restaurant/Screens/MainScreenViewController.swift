@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class MainScreen: UIViewController, UISearchBarDelegate {
+final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = ColorManager.accentColor
@@ -88,6 +88,15 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
     }()
 
     private let discountProductCollectionView = DiscountProductCollectionView()
+
+    private let catalogLabel: UILabel = {
+        let catalogLabel = UILabel()
+        catalogLabel.text = "Каталог"
+        catalogLabel.font = FontManager.sfRegular20
+        return catalogLabel
+    }()
+
+    private let catalogStackView = CatalogStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -230,6 +239,20 @@ final class MainScreen: UIViewController, UISearchBarDelegate {
             make.right.equalToSuperview()
             make.top.equalTo(discountLabel.snp.bottom).inset(-20)
             make.height.equalTo(208)
+        }
+
+        contentView.addSubview(catalogLabel)
+        catalogLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(15)
+            make.top.equalTo(discountProductCollectionView.snp.bottom).inset(-20)
+            make.height.equalTo(20)
+            make.width.equalTo(100)
+        }
+
+        contentView.addSubview(catalogStackView)
+        catalogStackView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview().inset(15)
+            make.top.equalTo(catalogLabel.snp.bottom).inset(-20)
         }
     }
 }
