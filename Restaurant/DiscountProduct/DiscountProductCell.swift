@@ -100,7 +100,6 @@ final class  DiscountProductCell: UICollectionViewCell {
         contentView.addSubview(discountImage)
         discountImage.image = UIImage(named: "discount1")
         discountImage.snp.makeConstraints { make in
-
             make.left.right.top.equalToSuperview().inset(5)
             make.height.equalTo(92)
         }

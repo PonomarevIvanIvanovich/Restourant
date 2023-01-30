@@ -8,26 +8,26 @@
 import UIKit
 import SnapKit
 
+protocol MainScreenViewControlerDelegate {
+    func toggleMenu()
+}
+
 final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
+    var delegate: MainScreenViewControlerDelegate?
+
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.backgroundColor = ColorManager.accentColor
-        scrollView.frame = view.bounds
-        scrollView.contentSize = contentSize
         return scrollView
     }()
 
     private lazy var contentView: UIView = {
         let contentView = UIView()
         contentView.backgroundColor = ColorManager.accentColor
-        contentView.frame.size = contentSize
         return contentView
     }()
-
-    private var contentSize: CGSize {
-        CGSize(width: view.frame.width, height: view.frame.height + 400)
-    }
-
+    
     private let leftMenuButton: UIButton = {
         let leftMenuButton = UIButton()
         leftMenuButton.setImage(UIImage(named: "leftMenu"), for: .normal)
@@ -96,7 +96,7 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         return catalogLabel
     }()
 
-    private let catalogStackView = CatalogStackView()
+    private let catalogCollectionView = CatalogCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,11 +106,13 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         appendPromoSection()
     }
 
+
 // MARK: - Setup action
 
     private func setupTargetButton() {
         searchAdressButton.addTarget(self, action: #selector(tappedSearchAdressButton), for: .touchUpInside)
         leftMenuButton.addTarget(self, action: #selector(tappedLeftMenuButton), for: .touchUpInside)
+        hearhButton.addTarget(self, action: #selector(tappedhearhButton), for: .touchUpInside)
     }
 
     @objc func tappedSearchAdressButton() {
@@ -123,8 +125,12 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         present(searchAdressVC, animated: true)
     }
 
-    @objc func tappedLeftMenuButton() {
+    @objc func tappedhearhButton() {
+        print("tappedhearhButton")
+    }
 
+    @objc func tappedLeftMenuButton() {
+        delegate?.toggleMenu()
     }
 
     private func setupSearchBar() {
@@ -141,10 +147,15 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
 
     }
 
+    func setupAddress(street: String) {
+        adressLabel.text = street
+    }
+
     private func appendPromoSection() {
         promoSectionCollectionView.set(cell: PromoSectionModel.fatchPromo())
         promoBannerCollection.set(cell: PromoBannerModel.fatchPromo())
         discountProductCollectionView.set(cell: DiscountProductModel.fatchPromo())
+        catalogCollectionView.set(cell: CatalogModel.fatchPromo())
     }
 
 // MARK: - Setup constraints
@@ -152,7 +163,16 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
     private func setupUI() {
         view.backgroundColor = ColorManager.accentColor
         view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.left.right.height.width.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+
         scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.width.top.equalToSuperview()
+            make.bottom.lessThanOrEqualToSuperview()
+        }
+
         contentView.addSubview(leftMenuButton)
         leftMenuButton.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
@@ -249,10 +269,13 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
             make.width.equalTo(100)
         }
 
-        contentView.addSubview(catalogStackView)
-        catalogStackView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview().inset(15)
+        contentView.addSubview(catalogCollectionView)
+        catalogCollectionView.backgroundColor = ColorManager.accentColor
+        catalogCollectionView.snp.makeConstraints { make in
             make.top.equalTo(catalogLabel.snp.bottom).inset(-20)
+            make.left.right.equalToSuperview().inset(15)
+            make.height.equalTo(440)
+            make.bottom.equalToSuperview()
         }
     }
 }
