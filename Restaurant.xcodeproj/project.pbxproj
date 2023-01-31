@@ -117,6 +117,9 @@
 				E8A44F86297FD212004861FC /* MainScreenViewController.swift */,
 				E86901E4298160B80048B1EA /* SearchAddressBottomSheet */,
 				E86901E32981606C0048B1EA /* PromoSection */,
+				E86901EB298273A90048B1EA /* PromoBanner */,
+				E86901F229829D080048B1EA /* DiscountProduct */,
+				E86902062983B70B0048B1EA /* Catalog */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -146,8 +149,6 @@
 				E8A44F84297FD212004861FC /* SceneDelegate.swift */,
 				E8A44F82297FD212004861FC /* AppDelegate.swift */,
 				E869020D2983E2D90048B1EA /* ContainerViewController.swift */,
-				E8AE74402987AE630057A009 /* Managers */,
-				E8AE743F2987AE380057A009 /* Network */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -205,10 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				E86901E5298175740048B1EA /* Application */,
+				E8AE74402987AE630057A009 /* Managers */,
+				E8AE743F2987AE380057A009 /* Network */,
 				E86901E2298160420048B1EA /* Screens */,
-				E86901EB298273A90048B1EA /* PromoBanner */,
-				E86901F229829D080048B1EA /* DiscountProduct */,
-				E86902062983B70B0048B1EA /* Catalog */,
 				E8A44F8B297FD214004861FC /* Assets.xcassets */,
 				E8A44F8D297FD214004861FC /* LaunchScreen.storyboard */,
 				E8A44F90297FD214004861FC /* Info.plist */,
