@@ -64,8 +64,6 @@ final class PromoBannerCell: UICollectionViewCell {
             make.height.equalTo(30)
             make.width.equalTo(150)
         }
-
-
     }
 }
 

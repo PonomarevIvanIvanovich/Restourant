@@ -21,4 +21,3 @@ struct PromoBannerModel {
         return [firstItem, secondItem, firstItem, secondItem, firstItem, secondItem, firstItem]
     }
 }
-
