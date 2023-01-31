@@ -8,7 +8,6 @@
 import Foundation
 
 final class NetworkDataFetcher {
-
     private var queryCreator = QueryCreator()
 
     func fetchAddres(searchTerm: String, complition: @escaping(Addres?) -> ()) {

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 final class QueryCreator {
-
     func createRequest(search: String, completion: @escaping(Data?, Error?) -> Void){
         guard let url = createURL() else { return }
         var request = URLRequest(url: url)

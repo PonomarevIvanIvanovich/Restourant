@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class SearchArdessCell: UITableViewCell {
+final class SearchAddressCell: UITableViewCell {
     static let identifier = "SearchArdessCell"
 
-    var modelAddres: DataClass?
+    var modelAddress: DataClass?
 
     private let pinImage: UIImageView = {
         let pinImage = UIImageView()
@@ -42,18 +42,6 @@ final class SearchArdessCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-//    private func addressChoice() {
-//        guard let modelAddres = modelAddres else { return }
-//        if modelAddres.street != nil && modelAddres.street != "" {
-//            citylabel.text = modelAddres.city
-//            streetlabel.text = modelAddres.street
-//            if modelAddres.city != "" {
-//                streetlabel.text = modelAddres.city
-//            }
-//        }
-//
-//    }
 
     private func setupUI() {
         contentView.addSubview(pinImage)

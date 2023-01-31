@@ -15,6 +15,8 @@ protocol MainScreenViewControlerDelegate {
 final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
     var delegate: MainScreenViewControlerDelegate?
 
+    var clouser: ((String) -> ())?
+
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -43,18 +45,18 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         return deliveryLabel
     }()
 
-    private let adressLabel: UILabel = {
-        let adressButton = UILabel()
-        adressButton.text = "Пискунова,24"
-        adressButton.font = FontManager.sfRegular16
-        return adressButton
+    let addressLabel: UILabel = {
+        let addressLabel = UILabel()
+        addressLabel.text = "Ижевск"
+        addressLabel.font = FontManager.sfRegular16
+        return addressLabel
     }()
 
-    private let searchAdressButton: UIButton = {
-        let dropMenuButton = UIButton()
-        dropMenuButton.setImage(UIImage(named: "down"), for: .normal)
-        dropMenuButton.sizeToFit()
-        return dropMenuButton
+    private let searchAddressButton: UIButton = {
+        let searchAddressButton = UIButton()
+        searchAddressButton.setImage(UIImage(named: "down"), for: .normal)
+        searchAddressButton.sizeToFit()
+        return searchAddressButton
     }()
 
     lazy var searchBar:UISearchBar = UISearchBar()
@@ -106,23 +108,26 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         appendPromoSection()
     }
 
-
 // MARK: - Setup action
 
     private func setupTargetButton() {
-        searchAdressButton.addTarget(self, action: #selector(tappedSearchAdressButton), for: .touchUpInside)
+        searchAddressButton.addTarget(self, action: #selector(tappedSearchAddressButton), for: .touchUpInside)
         leftMenuButton.addTarget(self, action: #selector(tappedLeftMenuButton), for: .touchUpInside)
         hearhButton.addTarget(self, action: #selector(tappedhearhButton), for: .touchUpInside)
     }
 
-    @objc func tappedSearchAdressButton() {
-        let searchAdressVC = SearchAdressBottomSheet()
-        if let sheet = searchAdressVC.sheetPresentationController {
+    @objc func tappedSearchAddressButton() {
+        let searchAddressVC = SearchAddressBottomSheet()
+        searchAddressVC.clouse = { address in
+            self.addressLabel.text = address
+        }
+        if let sheet = searchAddressVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true
+
             sheet.prefersScrollingExpandsWhenScrolledToEdge = true
             sheet.detents = [.large()]
         }
-        present(searchAdressVC, animated: true)
+        present(searchAddressVC, animated: true)
     }
 
     @objc func tappedhearhButton() {
@@ -143,12 +148,8 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
     }
 
-    @objc func searchBar(_ searchBar: UISearchBar, textDidChange textSearched: String) {
-
-    }
-
     func setupAddress(street: String) {
-        adressLabel.text = street
+        addressLabel.text = street
     }
 
     private func appendPromoSection() {
@@ -188,25 +189,25 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
             make.width.equalTo(85)
         }
 
-        contentView.addSubview(adressLabel)
-        adressLabel.snp.makeConstraints { make in
+        contentView.addSubview(addressLabel)
+        addressLabel.snp.makeConstraints { make in
             make.top.equalTo(deliveryLabel.snp.bottom)
             make.left.equalToSuperview().inset(65)
             make.height.equalTo(20)
             make.width.equalTo(102)
         }
 
-        contentView.addSubview(searchAdressButton)
-        searchAdressButton.snp.makeConstraints { make in
-            make.centerY.equalTo(adressLabel.snp.centerY)
-            make.left.equalTo(adressLabel.snp.right).inset(-6)
+        contentView.addSubview(searchAddressButton)
+        searchAddressButton.snp.makeConstraints { make in
+            make.centerY.equalTo(addressLabel.snp.centerY)
+            make.left.equalTo(addressLabel.snp.right).inset(-6)
             make.height.equalTo(10)
             make.width.equalTo(12)
         }
 
         contentView.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in
-            make.top.equalTo(adressLabel.snp.bottom).inset(-16)
+            make.top.equalTo(addressLabel.snp.bottom).inset(-16)
             make.height.equalTo(35)
             make.right.equalToSuperview().inset(55)
             make.left.equalToSuperview().inset(15)
@@ -227,6 +228,7 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
             make.top.equalTo(searchBar.snp.bottom).inset(-20)
             make.height.equalTo(80)
         }
+        
         contentView.addSubview(promoBannerCollection)
         promoBannerCollection.backgroundColor = ColorManager.accentColor
         promoBannerCollection.snp.makeConstraints { make in

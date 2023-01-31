@@ -10,12 +10,10 @@ import UIKit
 import SnapKit
 
 final class CatalogCollectionView: UICollectionView {
-
     var cellArray = [CatalogModel]()
 
     init() {
         let layout = UICollectionViewFlowLayout()
-
         super.init(frame: .zero, collectionViewLayout: layout)
         setupCatalogCollectionView()
     }
@@ -70,7 +68,6 @@ extension CatalogCollectionView: UICollectionViewDataSource {
 //MARK: - UICollectionViewDataSource
 
 extension CatalogCollectionView: UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.width / 3 - 8) , height: 135)
     }
