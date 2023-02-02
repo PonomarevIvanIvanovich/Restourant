@@ -1,5 +1,5 @@
 //
-//  NetworkService.swift
+//  QueryCreator.swift
 //  Restaurant
 //
 //  Created by Иван Пономарев on 28.01.2023.

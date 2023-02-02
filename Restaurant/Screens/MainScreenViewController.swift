@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainScreenViewControler.swift
 //  Restaurant
 //
 //  Created by Иван Пономарев on 24.01.2023.
@@ -32,7 +32,7 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
     
     private let leftMenuButton: UIButton = {
         let leftMenuButton = UIButton()
-        leftMenuButton.setImage(UIImage(named: "leftMenu"), for: .normal)
+        leftMenuButton.setImage(UIImage(named: "menu"), for: .normal)
         leftMenuButton.sizeToFit()
         return leftMenuButton
     }()
@@ -123,7 +123,6 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
         }
         if let sheet = searchAddressVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true
-
             sheet.prefersScrollingExpandsWhenScrolledToEdge = true
             sheet.detents = [.large()]
         }

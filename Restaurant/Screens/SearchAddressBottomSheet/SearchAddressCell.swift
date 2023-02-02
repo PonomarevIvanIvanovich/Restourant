@@ -1,5 +1,5 @@
 //
-//  SearchAdressCell.swift
+//  SearchAddressCell.swift
 //  Restaurant
 //
 //  Created by Иван Пономарев on 25.01.2023.

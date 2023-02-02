@@ -1,5 +1,5 @@
 //
-//  PromoModel.swift
+//  PromoSectionModel.swift
 //  Restaurant
 //
 //  Created by Иван Пономарев on 26.01.2023.

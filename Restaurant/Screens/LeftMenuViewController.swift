@@ -39,6 +39,21 @@ final class LeftMenuViewController: UIViewController {
         return seporatop
     }()
 
+    private let paymentlabel: UILabel = {
+        let paymentlabel = UILabel()
+        paymentlabel.text = "Оплата"
+        paymentlabel.font = FontManager.sfRegular16
+        return paymentlabel
+    }()
+
+    private let cartNumberlabel: UILabel = {
+        let cartNumberlabel = UILabel()
+        cartNumberlabel.text = "Карта *4567"
+        cartNumberlabel.font = FontManager.sfRegular14
+        cartNumberlabel.textColor = ColorManager.greyText
+        return cartNumberlabel
+    }()
+
     private let menuTableView = UITableView()
 
     private let connectButton: UIButton = {
@@ -119,6 +134,23 @@ final class LeftMenuViewController: UIViewController {
             make.height.equalTo(2)
         }
 
+
+        view.addSubview(paymentlabel)
+        paymentlabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(18)
+            make.width.equalTo(54)
+            make.top.equalTo(seporator.snp.bottom).inset(-24)
+            make.height.equalTo(20)
+        }
+
+        view.addSubview(cartNumberlabel)
+        cartNumberlabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(18)
+            make.width.equalTo(100)
+            make.top.equalTo(paymentlabel.snp.bottom)
+            make.height.equalTo(20)
+        }
+
         view.addSubview(connectionLabel)
         connectionLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview().inset(50)
@@ -129,7 +161,7 @@ final class LeftMenuViewController: UIViewController {
 
         view.addSubview(menuTableView)
         menuTableView.snp.makeConstraints { make in
-            make.top.equalTo(seporator.snp.bottom).inset(-20)
+            make.top.equalTo(cartNumberlabel.snp.bottom).inset(-15)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(connectionLabel.snp.top)
         }

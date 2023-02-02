@@ -1,5 +1,5 @@
 //
-//  SearchAdressViewController.swift
+//  SearchAddressBottomSheet.swift
 //  Restaurant
 //
 //  Created by Иван Пономарев on 25.01.2023.
@@ -11,7 +11,7 @@ import SnapKit
 
 final class SearchAddressBottomSheet: UIViewController {
     private let defaults = UserDefaults.standard
-    let networkDataFetcher = NetworkDataFetcher()
+    var networkDataFetch: NetworkDataFetcherDelegat?
     var addressArray = [DataClass]()
     var searchText = String()
 
@@ -38,7 +38,8 @@ final class SearchAddressBottomSheet: UIViewController {
     }
 
     func postRequest(searchText: String) {
-        networkDataFetcher.fetchAddres(searchTerm: searchText) { result in
+        networkDataFetch = NetworkDataFetcher()
+        networkDataFetch?.fetchAddres(searchTerm: searchText) { result in
             guard let result = result else { return }
             let arrayModels = result.suggestions.map({$0.data})
             self.addressArray = arrayModels.filter{ i in i.street_with_type != nil}

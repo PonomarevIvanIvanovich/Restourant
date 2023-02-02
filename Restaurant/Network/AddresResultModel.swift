@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Addres: Codable {
+struct AddresResultModel: Codable {
     let suggestions: [Suggestion]
 }
 
@@ -21,7 +21,6 @@ struct DataClass: Codable {
     let region: String?
     let city: String?
     let street_with_type: String?
-    let house_type: String?
     let house: String?
 }
 

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  NetworkDataFetcher.swift
 //  Restaurant
 //
 //  Created by Иван Пономарев on 28.01.2023.
@@ -7,16 +7,20 @@
 
 import Foundation
 
-final class NetworkDataFetcher {
+protocol NetworkDataFetcherDelegat {
+    func fetchAddres(searchTerm: String, complition: @escaping(AddresResultModel?) -> ())
+}
+
+final class NetworkDataFetcher: NetworkDataFetcherDelegat {
     private var queryCreator = QueryCreator()
 
-    func fetchAddres(searchTerm: String, complition: @escaping(Addres?) -> ()) {
+    func fetchAddres(searchTerm: String, complition: @escaping(AddresResultModel?) -> ()) {
         queryCreator.createRequest(search: searchTerm, completion: { data, error in
             if let error = error {
                 print("Error received request data: \(error.localizedDescription)")
                 complition(nil)
             }
-            let decode = self.decodeJSONE(type: Addres.self, from: data)
+            let decode = self.decodeJSONE(type: AddresResultModel.self, from: data)
             complition(decode)
         })
     }
