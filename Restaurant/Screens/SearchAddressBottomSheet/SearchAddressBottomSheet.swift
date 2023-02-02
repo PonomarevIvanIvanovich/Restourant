@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 final class SearchAddressBottomSheet: UIViewController {
+    private let defaults = UserDefaults.standard
     let networkDataFetcher = NetworkDataFetcher()
     var addressArray = [DataClass]()
     var searchText = String()
@@ -28,10 +29,21 @@ final class SearchAddressBottomSheet: UIViewController {
         setupUI()
         setupSearchBar()
         setupTableView()
+        searchBar.text = defaults.string(forKey: "key")
+        postRequest(searchText: searchBar.text ?? "")
     }
 
     deinit{
         print("deinit searchBottomSheet")
+    }
+
+    func postRequest(searchText: String) {
+        networkDataFetcher.fetchAddres(searchTerm: searchText) { result in
+            guard let result = result else { return }
+            let arrayModels = result.suggestions.map({$0.data})
+            self.addressArray = arrayModels.filter{ i in i.street_with_type != nil}
+            self.tableView.reloadData()
+        }
     }
 
     private func setupTableView() {
@@ -92,8 +104,15 @@ extension SearchAddressBottomSheet: UITableViewDelegate, UITableViewDataSource {
         let streeString = addressArray[indexPath.row].street_with_type ?? ""
         let houseString = addressArray[indexPath.row].house ?? ""
         let address = streeString + " " + houseString
-        clouse?(address)
-        dismiss(animated: true)
+        let city = addressArray[indexPath.row].city ?? ""
+        if addressArray[indexPath.row].house != nil {
+            defaults.set(city, forKey: "key")
+            clouse?(address)
+            dismiss(animated: true)
+        } else {
+            searchBar.text = city + " " + address + " "
+            postRequest(searchText:city + " " + address + " ")
+        }
     }
 }
 
@@ -101,13 +120,9 @@ extension SearchAddressBottomSheet: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         smSearch(text: searchText, action: #selector(delaySearch(with:)), afterDelay: 0.3)
     }
+
     @objc func delaySearch(with: String) {
-        networkDataFetcher.fetchAddres(searchTerm: with) { result in
-            guard let result = result else { return }
-            let arrayModels = result.suggestions.map({$0.data!})
-            self.addressArray = arrayModels.filter{ i in i.street_with_type != nil}
-            self.tableView.reloadData()
-        }
+        self.postRequest(searchText: with)
     }
 }
 

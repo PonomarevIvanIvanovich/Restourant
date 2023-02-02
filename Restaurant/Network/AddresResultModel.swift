@@ -13,7 +13,7 @@ struct Addres: Codable {
 
 // MARK: - Suggestion
 struct Suggestion: Codable {
-    let data: DataClass?
+    let data: DataClass
 }
 
 // MARK: - DataClass
