@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-protocol MainScreenViewControlerDelegate {
+protocol MainScreenViewControlerDelegate: AnyObject {
     func toggleMenu()
 }
 
 final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
-    var delegate: MainScreenViewControlerDelegate?
+    weak var delegate: MainScreenViewControlerDelegate?
 
     var clouser: ((String) -> ())?
 
@@ -118,8 +118,8 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
 
     @objc func tappedSearchAddressButton() {
         let searchAddressVC = SearchAddressBottomSheet()
-        searchAddressVC.clouse = { address in
-            self.addressLabel.text = address
+        searchAddressVC.clouse = { [weak self] address in
+            self?.addressLabel.text = address
         }
         if let sheet = searchAddressVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true

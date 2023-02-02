@@ -113,8 +113,8 @@
 		E86901E2298160420048B1EA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E8B350532983F2E700ED99D8 /* LeftMenuViewController.swift */,
 				E8A44F86297FD212004861FC /* MainScreenViewController.swift */,
+				E8B350532983F2E700ED99D8 /* LeftMenuViewController.swift */,
 				E86901E4298160B80048B1EA /* SearchAddressBottomSheet */,
 				E86901E32981606C0048B1EA /* PromoSection */,
 				E86901EB298273A90048B1EA /* PromoBanner */,

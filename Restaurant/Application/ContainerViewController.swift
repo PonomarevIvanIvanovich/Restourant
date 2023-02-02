@@ -18,6 +18,10 @@ final class ContainerViewController: UIViewController, MainScreenViewControlerDe
         configureMainScreenViewController()
     }
 
+    deinit {
+        print("deinit container")
+    }
+
     private func configureMainScreenViewController() {
         let mainScreenViewController = MainScreenViewControler()
         mainScreenViewController.delegate = self

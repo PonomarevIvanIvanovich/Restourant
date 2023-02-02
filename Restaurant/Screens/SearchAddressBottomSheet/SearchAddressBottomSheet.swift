@@ -30,6 +30,10 @@ final class SearchAddressBottomSheet: UIViewController {
         setupTableView()
     }
 
+    deinit{
+        print("deinit searchBottomSheet")
+    }
+
     private func setupTableView() {
         tableView.rowHeight = 50
         tableView.separatorStyle = .none

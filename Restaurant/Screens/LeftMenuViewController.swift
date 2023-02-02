@@ -66,6 +66,10 @@ final class LeftMenuViewController: UIViewController {
         setupMenuTableView()
     }
 
+    deinit {
+        print("deinit leftMenuViewController")
+    }
+
     private func setupConnectButton() {
         connectButton.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         connectButton.addTarget(self, action: #selector(tappedConnectButton), for: .touchUpInside)
