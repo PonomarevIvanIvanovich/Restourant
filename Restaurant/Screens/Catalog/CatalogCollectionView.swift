@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class CatalogCollectionView: UICollectionView {
-    var cellArray = [CatalogModel]()
+    private var cellArray = [CatalogModel]()
 
     init() {
         let layout = UICollectionViewFlowLayout()

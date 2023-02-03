@@ -11,9 +11,9 @@ import SnapKit
 
 final class SearchAddressBottomSheet: UIViewController {
     private let defaults = UserDefaults.standard
-    var networkDataFetch: NetworkDataFetcherDelegat?
-    var addressArray = [DataClass]()
-    var searchText = String()
+    private var networkDataFetch: NetworkDataFetcherLogic?
+    private var addressArray = [DataClass]()
+
 
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -37,7 +37,7 @@ final class SearchAddressBottomSheet: UIViewController {
         print("deinit searchBottomSheet")
     }
 
-    func postRequest(searchText: String) {
+    private func postRequest(searchText: String) {
         networkDataFetch = NetworkDataFetcher()
         networkDataFetch?.fetchAddres(searchTerm: searchText) { result in
             guard let result = result else { return }

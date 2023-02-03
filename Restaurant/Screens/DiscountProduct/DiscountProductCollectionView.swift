@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class DiscountProductCollectionView: UICollectionView {
-    var cellArray = [DiscountProductModel]()
+    private var cellArray = [DiscountProductModel]()
 
     init() {
         let layout = UICollectionViewFlowLayout()

@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol NetworkDataFetcherDelegat {
+protocol NetworkDataFetcherLogic {
     func fetchAddres(searchTerm: String, complition: @escaping(AddresResultModel?) -> ())
 }
 
-final class NetworkDataFetcher: NetworkDataFetcherDelegat {
+final class NetworkDataFetcher: NetworkDataFetcherLogic {
     private var queryCreator = QueryCreator()
 
     func fetchAddres(searchTerm: String, complition: @escaping(AddresResultModel?) -> ()) {

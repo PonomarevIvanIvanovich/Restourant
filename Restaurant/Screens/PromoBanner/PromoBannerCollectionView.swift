@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class PromoBannerCollection: UICollectionView {
-    var cellArray = [PromoBannerModel]()
+    private var cellArray = [PromoBannerModel]()
 
     init() {
         let layout = UICollectionViewFlowLayout()

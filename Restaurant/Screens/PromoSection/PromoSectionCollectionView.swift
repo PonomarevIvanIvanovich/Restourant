@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class PromoSectionCollectionView: UICollectionView {
-    var cell = [PromoSectionModel]()
+    private var cell = [PromoSectionModel]()
     
     init() {
         let layout = UICollectionViewFlowLayout()
