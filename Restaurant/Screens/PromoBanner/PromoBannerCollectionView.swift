@@ -56,9 +56,7 @@ extension PromoBannerCollection: UICollectionViewDataSource {
         ) as? PromoBannerCell else {
             return UICollectionViewCell()
         }
-        cell.promoImage.image = cellArray[indexPath.row].mainImage
-        cell.promoLabel.text = cellArray[indexPath.row].promoLabel
-        cell.titleLabel.text = cellArray[indexPath.row].titleLabel
+        cell.configCell(model: cellArray[indexPath.row])
         return cell
     }
 }

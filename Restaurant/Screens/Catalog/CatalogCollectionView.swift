@@ -58,9 +58,7 @@ extension CatalogCollectionView: UICollectionViewDataSource {
         ) as? CatalogCell else {
             return UICollectionViewCell()
         }
-        cell.titlelabel.text = cellArray[indexPath.row].title
-        cell.backgroundColor = cellArray[indexPath.row].color
-        cell.foodImage.image = cellArray[indexPath.row].image
+        cell.configCell(model: cellArray[indexPath.row])
         return cell
     }
 }

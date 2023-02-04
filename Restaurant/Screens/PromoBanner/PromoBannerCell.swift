@@ -19,14 +19,14 @@ final class PromoBannerCell: UICollectionViewCell {
 
     let promoLabel: UILabel = {
         let promoLabel = UILabel()
-        promoLabel.font = UIFont(name: "roboto-regular", size: 15)
+        promoLabel.font = FontManager.robotoRegular15
         promoLabel.textColor = .white
         return promoLabel
     }()
 
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont(name: "Roboto-Bold", size: 25)
+        titleLabel.font = FontManager.robotoRegular25
         titleLabel.textColor = .white
         return titleLabel
     }()
@@ -38,6 +38,12 @@ final class PromoBannerCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func configCell(model: PromoBannerModel) {
+        promoImage.image = model.mainImage
+        promoLabel.text = model.promoLabel
+        titleLabel.text = model.titleLabel
     }
 
     private func setupUI() {

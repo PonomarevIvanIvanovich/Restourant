@@ -22,7 +22,7 @@ final class LeftMenuViewController: UIViewController {
     private let nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Иван Иванов"
-        nameLabel.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        nameLabel.font = FontManager.sfPromedium16
         return nameLabel
     }()
 
@@ -35,7 +35,7 @@ final class LeftMenuViewController: UIViewController {
 
     private let seporator: UILabel = {
         let seporatop = UILabel()
-        seporatop.backgroundColor = UIColor(red: 0.754, green: 0.745, blue: 0.745, alpha: 1)
+        seporatop.backgroundColor = ColorManager.seporatopColor
         return seporatop
     }()
 
@@ -59,7 +59,7 @@ final class LeftMenuViewController: UIViewController {
     private let connectButton: UIButton = {
         let connectButton = UIButton()
         connectButton.setImage(UIImage(named: "connect"), for: .normal)
-        connectButton.layer.borderColor = CGColor(red: 0.443, green: 0.443, blue: 0.443, alpha: 1)
+        connectButton.layer.borderColor = ColorManager.borderColor
         connectButton.layer.borderWidth = 2
         connectButton.layer.cornerRadius = 27
         return connectButton

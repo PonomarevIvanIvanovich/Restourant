@@ -43,6 +43,13 @@ final class SearchAddressCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func configurCell(model: DataClass) {
+        let streeString = model.street_with_type ?? ""
+        let houseString = model.house ?? ""
+        citylabel.text = model.city
+        streetlabel.text = streeString + " " + houseString
+    }
+
     private func setupUI() {
         contentView.addSubview(pinImage)
         pinImage.snp.makeConstraints { make in

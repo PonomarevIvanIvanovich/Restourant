@@ -33,6 +33,11 @@ final class PromoSectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func configCell(model: PromoSectionModel) {
+        sectionImage.image = model.mainImage
+        sectionLabel.text = model.name
+    }
+
     private func setupUI() {
         contentView.addSubview(sectionLabel)
         sectionLabel.snp.makeConstraints { make in

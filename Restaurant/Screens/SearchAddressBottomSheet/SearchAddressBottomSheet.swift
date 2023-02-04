@@ -94,10 +94,7 @@ extension SearchAddressBottomSheet: UITableViewDelegate, UITableViewDataSource {
         ) as? SearchAddressCell else {
             return UITableViewCell()
         }
-        let streeString = addressArray[indexPath.row].street_with_type ?? ""
-        let houseString = addressArray[indexPath.row].house ?? ""
-        cell.citylabel.text = addressArray[indexPath.row].city
-        cell.streetlabel.text = streeString + " " + houseString
+        cell.configurCell(model: addressArray[indexPath.row])
         return cell
     }
 

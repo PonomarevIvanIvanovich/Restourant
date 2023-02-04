@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class PromoSectionCollectionView: UICollectionView {
-    private var cell = [PromoSectionModel]()
+    private var modelPromoSectionArray = [PromoSectionModel]()
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -33,7 +33,7 @@ final class PromoSectionCollectionView: UICollectionView {
     }
 
     func set(cell: [PromoSectionModel]) {
-        self.cell = cell
+        self.modelPromoSectionArray = cell
     }
 }
 //MARK: - UICollectionViewDelegate
@@ -48,7 +48,7 @@ extension PromoSectionCollectionView: UICollectionViewDelegate {
 
 extension PromoSectionCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cell.count
+        modelPromoSectionArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,8 +58,7 @@ extension PromoSectionCollectionView: UICollectionViewDataSource {
         ) as? PromoSectionCell else {
             return UICollectionViewCell()
         }
-        cell.sectionLabel.text = self.cell[indexPath.row].name
-        cell.sectionImage.image = self.cell[indexPath.row].mainImage
+        cell.configCell(model: modelPromoSectionArray[indexPath.row])
         return cell
     }
 }

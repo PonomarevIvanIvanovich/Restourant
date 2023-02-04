@@ -139,7 +139,7 @@ final class MainScreenViewControler: UIViewController, UISearchBarDelegate {
 
     private func setupSearchBar() {
         searchBar.searchBarStyle = UISearchBar.Style.minimal
-        searchBar.placeholder = "Поик товаров"
+        searchBar.placeholder = "Поиcк товаров"
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         searchBar.showsScopeBar = true

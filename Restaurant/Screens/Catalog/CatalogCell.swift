@@ -19,7 +19,7 @@ final class CatalogCell: UICollectionViewCell {
 
     let titlelabel: UILabel = {
         let titlelabel = UILabel()
-        titlelabel.font = UIFont(name: "SF Pro Display Semibold", size: 14)
+        titlelabel.font = FontManager.sfSemibold14
         titlelabel.textAlignment = .center
         titlelabel.numberOfLines = 2
         return titlelabel
@@ -32,6 +32,12 @@ final class CatalogCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func configCell(model: CatalogModel) {
+        foodImage.image = model.image
+        titlelabel.text = model.title
+        backgroundColor = model.color
     }
 
     private func setupUI() {

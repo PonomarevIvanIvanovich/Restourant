@@ -33,7 +33,7 @@ final class  DiscountProductCell: UICollectionViewCell {
         discountLabel.textAlignment = .center
         discountLabel.font = FontManager.sfRegular10
         discountLabel.text = "25%"
-        discountLabel.backgroundColor = UIColor(red: 1, green: 0.259, blue: 0.192, alpha: 1)
+        discountLabel.backgroundColor = ColorManager.backgroundColorElement
         discountLabel.layer.cornerRadius = 8
         return discountLabel
     }()
@@ -45,7 +45,7 @@ final class  DiscountProductCell: UICollectionViewCell {
         newProductLabel.textAlignment = .center
         newProductLabel.font = FontManager.sfRegular10
         newProductLabel.text = "Новинка"
-        newProductLabel.backgroundColor = UIColor(red: 1, green: 0.626, blue: 0.199, alpha: 1)
+        newProductLabel.backgroundColor = ColorManager.backgroundColorNew
         newProductLabel.layer.cornerRadius = 8
         return newProductLabel
     }()
@@ -61,7 +61,7 @@ final class  DiscountProductCell: UICollectionViewCell {
 
     let oldPriceLabel: UILabel = {
         let priceLabel = UILabel()
-        priceLabel.textColor = UIColor(red: 1, green: 0.259, blue: 0.192, alpha: 1)
+        priceLabel.textColor = ColorManager.backgroundColorElement
         priceLabel.font = FontManager.sfRegular12
         priceLabel.text = "360р"
         return priceLabel
@@ -69,7 +69,7 @@ final class  DiscountProductCell: UICollectionViewCell {
 
     let priceLabel: UILabel = {
         let priceLabel = UILabel()
-        priceLabel.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        priceLabel.font = FontManager.sfPromedium16
         priceLabel.text = "200р"
         return priceLabel
     }()
@@ -78,7 +78,7 @@ final class  DiscountProductCell: UICollectionViewCell {
         let addProductButton = UIButton()
         addProductButton.setTitleColor(.black, for: .normal)
         addProductButton.titleLabel?.font =  FontManager.sfRegular18
-        addProductButton.backgroundColor = UIColor(red: 1, green: 0.827, blue: 0.204, alpha: 1)
+        addProductButton.backgroundColor = ColorManager.addProductColor
         addProductButton.setTitle("+", for: .normal)
         addProductButton.layer.cornerRadius = 15
         addProductButton.contentVerticalAlignment = .bottom
@@ -92,6 +92,20 @@ final class  DiscountProductCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func strikethroughText(text: String) -> NSMutableAttributedString {
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: text)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+        return attributeString
+    }
+
+    func configCell(model: DiscountProductModel) {
+        titleLabel.text = model.titleLabel
+        discountLabel.text = model.discount
+        priceLabel.text = model.price
+        oldPriceLabel.attributedText = strikethroughText(text: model.oldPrice ?? "")
+        discountImage.image = model.image
     }
 
     private func setupUI() {

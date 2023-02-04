@@ -24,12 +24,6 @@ final class DiscountProductCollectionView: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func strikethroughText(text: String) -> NSMutableAttributedString {
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: text)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
-        return attributeString
-    }
-
     private func setupDiscountProductCollectionView() {
         register(DiscountProductCell.self, forCellWithReuseIdentifier: DiscountProductCell.identyfier)
         showsHorizontalScrollIndicator = false
@@ -65,11 +59,7 @@ extension DiscountProductCollectionView: UICollectionViewDataSource {
         ) as? DiscountProductCell else {
             return UICollectionViewCell()
         }
-        cell.titleLabel.text = cellArray[indexPath.row].titleLabel
-        cell.discountLabel.text = cellArray[indexPath.row].discount
-        cell.priceLabel.text = cellArray[indexPath.row].price
-        cell.oldPriceLabel.attributedText = strikethroughText(text: cellArray[indexPath.row].oldPrice ?? "")
-        cell.discountImage.image = cellArray[indexPath.row].image
+        cell.configCell(model: cellArray[indexPath.row])
         return cell
     }
 }
