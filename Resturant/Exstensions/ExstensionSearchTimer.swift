@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension NSObject {
+    func smSearch(text: String, action: Selector, afterDelay: Double = 0.3) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        perform(action, with: text, afterDelay: afterDelay)
+    }
+}
